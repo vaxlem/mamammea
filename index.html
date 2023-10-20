@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Wishes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="./styleTUNu.css">
+
+
+    <link rel="stylesheet" href="./bootstrap-4.5.3-dist/">
+    <!-- <link rel="icon" href="./image/logo.png"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,400&family=Montserrat:wght@900&family=Roboto:ital,wght@0,300;0,400;1,400&family=Sacramento&family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body{
+            background-image: url(./IMAGES/Capture.PNG);
+            /* width: 100% 100%; */
+            background-attachment: fixed;
+            background-size:contain; 
+            color: bisque;   
+            }
+        p{
+            background-color: rgba(0, 0, 255, 0.652);
+            color: yellow;
+            font-size: x-large;
+            font-weight: bold;
+            padding: 5rem 1em;
+        }
+        h1{
+            text-align: center;
+            background-color: pink;
+            color: chocolate;
+        }
+    </style>
+</head>
+<body>
+<h1>choose your best picture to display now</h1>
+<!-- Input element for user to select an image -->
+<input type="file" id="imageInput" accept="image/*">
+<div id="imageContainer">
+    <img id="userImage" src="" alt="User Image" style="display: none; max-width: 300px; max-height: 300px; align-content: center;">
+    <div id="textContainer" style="display: none;">
+        <p>WE LOVE YOU, NEW BABY IN TOWN 💐🎊🎊 <br><img src="./IMAGES/carlos.jpg" width="50%" height="auto" alt=""></p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function displayWishes() {
+        // Display an alert to greet the user
+        alert("Happy Birthday! 🎉");
+
+        // Prompt the user to enter their name
+        var name = prompt("Please enter your name:");
+
+        if (name) {
+            // Display a personalized birthday message
+            alert("Best wishes, " + name + "! 🎂🎈");
+        } else {
+            // Display a generic message if the user didn't enter a name
+            alert("Best wishes to you!");
+        }
+
+        // Display the original birthday message
+        showOriginalMessage();
+    }
+
+    function showOriginalMessage() {
+        // Display the original birthday message
+        alert("You've reached an incredible milestone in life, and it's a time to celebrate not just the years that have passed, but the wisdom and experience you've gained along the way. May this new decade be filled with joy, good health, and many more amazing adventures. Remember that age is just a number, and you're as young as you feel. Embrace this new chapter with enthusiasm and an open heart, for the best is yet to come. Here's to the next 100 years of laughter, love, and unforgettable memories. Wishing you a fantastic day surrounded by friends and family, and a future that's brighter than ever. Cheers to the big +1! 🥂🎉");
+    }
+
+    // Function to handle image selection and display
+    document.getElementById("imageInput").addEventListener("change", function () {
+        var userImage = document.getElementById("userImage");
+        var textContainer = document.getElementById("textContainer");
+        var file = this.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                userImage.src = e.target.result;
+                userImage.style.display = "block";
+                userImage.style.textAlign = "center";
+                textContainer.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Call the function when the page loads
+    window.onload = displayWishes;
+</script>
+
+</body>
+</html>
